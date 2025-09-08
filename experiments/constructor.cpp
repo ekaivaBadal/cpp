@@ -1,34 +1,45 @@
 #include <iostream>
 #include <string>
 using namespace std;
-    class Person{
-        public:
-        string name;
-        int age;
 
-        Person(string n,int a){
-            name = n;
-            age = a;
-            cout << "My name is "<< name << " and age is "<< age <<endl;
-        }
+class Person {
+public:
+    string name;
+    int age;
 
-        Person(const Person &p){
-                name = p.name;
-                age = p.age;
-                cout << "copy of p  :";
-                cout << name << " and "<< age<<endl;
-        }
+    // Default constructor
+    Person() {
+        name = "Unknown";
+        age = 0;
+        cout << "Default constructor called\n";
+    }
 
-        ~Person(){
-            name = "";
-            age = 0;
-            cout<< "destructor is called"<<endl;
-        }
-    };
+    // Parameterized constructor
+    Person(string n, int a) {
+        name = n;
+        age = a;
+        cout << "Parameterized constructor called: ";
+        cout << "My name is " << name << " and age is " << age << endl;
+    }
 
-int main(){
-    Person p("badal", 19);
-    Person p2 = p;
-    // ~Person p3;
-    return 0;
+    // Copy constructor
+    Person(const Person &p) {
+        name = p.name;
+        age = p.age;
+        cout << "Copy constructor called: ";
+        cout << name << " and " << age << endl;
+    }
+
+    // Destructor
+    ~Person() {
+        cout << "Destructor called for " << name << endl;
+    }
+};
+
+int main() {
+    Person p1;             // Default constructor
+    Person p2("Badal", 19); // Parameterized constructor
+    Person p3 = p2;         // Copy constructor
+
+    return 0; // destructors are automatically called here
 }
