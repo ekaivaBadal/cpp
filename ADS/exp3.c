@@ -1,56 +1,60 @@
 #include <stdio.h>
 #define MAX 5
 
-int STACK[MAX];
+int stack[MAX];
 int top = -1;
 
-void push(int ITEM){
-    if(top == MAX - 1){ 
-        printf("Stack Overflow! Cannot add %d\n", ITEM);
-    } else {
-        top = top + 1;
-        STACK[top] = ITEM;
-        printf("%d added to the stack\n", ITEM);
+// push
+int push(int item){
+    if(top == MAX -1){
+    printf("Stack Overflow! Cannot insert %d\n", item);
+    }else{
+        top++;
+        stack[top] = item;
+        printf("%d pushed into the stack \n",item);
     }
 }
 
-int pop() {
-    if(top == -1) {  
-        printf("Stack Underflow! Nothing to pop\n");
-        return -1;  
+void pop() {
+    if (top == -1) {
+        printf("Stack Underflow! No element to pop\n");
     } else {
-        int ITEM = STACK[top];
-        top = top - 1;
-        printf("%d popped from the stack\n", ITEM);
-        return ITEM;
+        printf("%d popped from stack\n", stack[top]);
+        top--;
+    }
+}
+
+void peek() {
+    if (top == -1) {
+        printf("Stack is empty!\n");
+    } else {
+        printf("Top element is: %d\n", stack[top]);
     }
 }
 
 void display() {
-    if(top == -1) {
-        printf("Stack is empty\n");
+    if (top == -1) {
+        printf("Stack is empty!\n");
     } else {
-        printf("Stack contents from top to bottom:\n");
-        for(int i = top; i >= 0; i--) {
-            printf("%d\n", STACK[i]);
+        printf("Stack elements: ");
+        for (int i = 0; i <= top; i++) {
+            printf("%d ", stack[i]);
         }
+        printf("\n");
     }
 }
 
-int main() {
+int main(){
+
+    push(10);
+    push(20);
     push(30);
     push(40);
     push(50);
-    push(60);
-    push(70);
-    push(80); 
 
-    display();
-
+    peek();
     pop();
-    pop();
-
+    peek();
     display();
-
     return 0;
 }
