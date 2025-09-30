@@ -1,0 +1,4 @@
+Owner Name,Contact Number,Registration Number,Vehicle Type,Model
+Vansh Shende,8767708514,122453,bike,honda livo
+cd "/workspaces/cpp/" && g++ traphicManagementSystem.cpp -o traphicManagementSystem && "/workspaces/cpp/"traphicManagementSystem,0,140720877360080,,
+Badal ramteke,1234567891,174053,car,tesla x
